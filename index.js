@@ -39,7 +39,6 @@ if (pinCode.pin === myPinCode) {
         else {
             console.log("Your withdraw amount exceeds your Current Balance");
         }
-        ;
     }
     else if (actionPerformed.operation === "Display Current Balance") {
         console.log("Your Current Balance is: " + myBalance);
@@ -59,4 +58,3 @@ if (pinCode.pin === myPinCode) {
 else {
     console.log("Incorrect pin entered, Try Again.");
 }
-;

@@ -38,13 +38,12 @@ if (pinCode.pin === myPinCode) {
         name: "cash",
       },
     ]);
-if (withdrawCash.cash < 20001) {
-  myBalance -= withdrawCash.cash;
-  console.log("Your remaining Balance is: " + myBalance);
-} else {
-  console.log("Your withdraw amount exceeds your Current Balance");
-};
-
+    if (withdrawCash.cash < 20001) {
+      myBalance -= withdrawCash.cash;
+      console.log("Your remaining Balance is: " + myBalance);
+    } else {
+      console.log("Your withdraw amount exceeds your Current Balance");
+    }
   } else if (actionPerformed.operation === "Display Current Balance") {
     console.log("Your Current Balance is: " + myBalance);
   } else if (actionPerformed.operation === "Deposit Amount") {
@@ -54,12 +53,10 @@ if (withdrawCash.cash < 20001) {
         type: "number",
         name: "amount",
       },
-    ])
+    ]);
     myBalance += depositAmount.amount;
     console.log("Your New Balance is: " + myBalance);
   }
 } else {
   console.log("Incorrect pin entered, Try Again.");
-};
-
-
+}
