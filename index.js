@@ -20,20 +20,20 @@ if (pinCode.pin === myPinCode) {
             message: "Select one of the operation to perform",
             name: "operation",
             type: "list",
-            choices: ["Withdraw Cash", "Display Current Balance"],
+            choices: ["Withdraw Cash", "Display Current Balance", "Deposit Amount"],
         },
     ]);
     console.log(actionPerformed);
     if (actionPerformed.operation === "Withdraw Cash") {
-        let withdrawAmount = await inquirer.prompt([
+        let withdrawCash = await inquirer.prompt([
             {
                 message: "Please enter the Widraw Amount: ",
                 type: "number",
-                name: "amount",
+                name: "cash",
             },
         ]);
-        if (withdrawAmount.amount < 20001) {
-            myBalance -= withdrawAmount.amount;
+        if (withdrawCash.cash < 20001) {
+            myBalance -= withdrawCash.cash;
             console.log("Your remaining Balance is: " + myBalance);
         }
         else {
@@ -42,7 +42,18 @@ if (pinCode.pin === myPinCode) {
         ;
     }
     else if (actionPerformed.operation === "Display Current Balance") {
-        console.log("Your remaining Balance is: " + myBalance);
+        console.log("Your Current Balance is: " + myBalance);
+    }
+    else if (actionPerformed.operation === "Deposit Amount") {
+        let depositAmount = await inquirer.prompt([
+            {
+                message: "Enter the amount you want to Deposit: ",
+                type: "number",
+                name: "amount",
+            },
+        ]);
+        myBalance += depositAmount.amount;
+        console.log("Your New Balance is: " + myBalance);
     }
 }
 else {
